@@ -7,7 +7,7 @@
   ...
 }:
 let
-  serverIP = "10.0.2.2";
+  serverIP = "10.0.174.12";
 in
 {
   imports = [ ./hardware-configuration.nix ];
