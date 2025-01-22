@@ -178,11 +178,9 @@ in
         inputs.mireapython.packages.x86_64-linux.mireapython
         simintech.packages.x86_64-linux.simintech
         chromium
-        rustc
+        # rustc
         clang-tools
-        go
-        gopls
-        delve
+        # go gopls delve
         # dotnet-sdk
         pinta
         unrar
@@ -196,12 +194,11 @@ in
         # pandoc
         #onlyoffice-desktopeditors # unfortunetely right now OnlyOffice has bug
         libreoffice # so libreoffice is still actual for us...
-        ghc
         clang
-        haskell-language-server
+        # ghc haskell-language-server
         jdk
         kotlin
-        nodePackages.intelephense
+        # nodePackages.intelephense
         # sql-language-server  # from NPM TODO
         tree
         unityhub
@@ -280,6 +277,8 @@ in
     agent.enableSSHSupport = true;
   };
   programs.udevil.enable = true;
+  services.devmon.enable = true;
+
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
