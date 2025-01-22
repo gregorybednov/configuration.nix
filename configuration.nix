@@ -169,7 +169,7 @@ in
             idea-community."2024.1"."com.redhat.devtools.lsp4ij"
           ])
           ++ [
-            (customJBPlugin "clsp" "1.0.0" "sha256-AU/Q61YYsGn2BAYykCGm4XGNyeSwd5K/txGNzP2dJg0=")
+            (customJBPlugin "clsp" "1.0.1" "sha256-AU/Q61YYsGn2BAYykCGm4XGNyeSwd5K/txGNzP2dJg0=")
             (customJBPlugin "spring-tool" "241-b3085-signed"
               "sha256-u9Hqy4BN1johA7e8proMekyERXkE6gXRnqGRNR7FouE="
             )
