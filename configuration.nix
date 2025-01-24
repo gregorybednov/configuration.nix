@@ -79,6 +79,7 @@ in
         unrar    # поддержка rar
         gtk3 whitesur-icon-theme # необходимо для иконок
         (pkgs.writeShellScriptBin "powermenu" (builtins.readFile inputs.mireadesktop.packages.x86_64-linux.powermenu))
+        (pkgs.writeShellScriptBin "resethome" (builtins.readFile inputs.mireadesktop.packages.x86_64-linux.startmireadesktop))
 
         pandoc
         #onlyoffice-desktopeditors # к сожалению, пока у OnlyOffice баг со шрифтами. Ждём фикс
