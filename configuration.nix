@@ -78,6 +78,7 @@ in
         unzipNLS # поддержка zip
         unrar    # поддержка rar
         gtk3 whitesur-icon-theme # необходимо для иконок
+        (pkgs.writeShellScriptBin "powermenu" (builtins.readFile inputs.mireadesktop.packages.x86_64-linux.powermenu))
 
         pandoc
         #onlyoffice-desktopeditors # к сожалению, пока у OnlyOffice баг со шрифтами. Ждём фикс
@@ -112,7 +113,6 @@ in
 
         shellcheck # проверка шелл-кода (bash, POSIX sh, ...)
 
-        
         # Другие возможные языки и инструменты, например:
         # rustc                               # - Rust
         # go gopls delve golint go-tools      # - Go
@@ -239,12 +239,14 @@ in
       efiSupport = true;
       device = "nodev";
       useOSProber = true;
+      theme = "${pkgs.sleek-grub-theme.override{ withStyle = "orange"; withBanner = "Выберите ОС"; }}";
     };
   } else {
     timeout = 5;
     grub = {
       enable = true;
       device = "/dev/sda";
+      theme = "${pkgs.sleek-grub-theme.override{ withStyle = "orange"; withBanner = "Загрузчик Linux"; }}";
     };
   };
   time.hardwareClockInLocalTime = hasBootPartition;
@@ -276,6 +278,7 @@ in
       name = "MIREA-WindowsLike";
       # подробности настроек рабочего стола см. на github.com/gregorybednov/mireadesktop
       start = ''
+        ${inputs.mireadesktop.packages.x86_64-linux.startmireadesktop}
         ${inputs.mireadesktop.packages.x86_64-linux.tint2} &
         ${inputs.mireadesktop.packages.x86_64-linux.pcmanfm} &
         waitPID=$!
@@ -369,7 +372,6 @@ in
         "homepageLocation" = "https://ya.ru";
       };
     };
-    bash.interactiveShellInit = "${inputs.mireadesktop.packages.x86_64-linux.startmireadesktop}";
     udevil.enable = true; # тоже нужно для флешек
   };
 
