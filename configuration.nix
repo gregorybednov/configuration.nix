@@ -279,7 +279,6 @@ in
       name = "MIREA-WindowsLike";
       # подробности настроек рабочего стола см. на github.com/gregorybednov/mireadesktop
       start = ''
-        ${inputs.mireadesktop.packages.x86_64-linux.startmireadesktop}
         ${inputs.mireadesktop.packages.x86_64-linux.tint2} &
         ${inputs.mireadesktop.packages.x86_64-linux.pcmanfm} &
         waitPID=$!
